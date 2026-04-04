@@ -1,25 +1,22 @@
+package at.ac.tgm;
+
+import java.util.List;
+
 public class Min implements Expression {
+	private List<Expression> expressions;
 
-	private List<Expression> values;
-
-	public Min(List<Expression> values) {
-
+	public Min(List<Expression> expressions) {
+		this.expressions = expressions;
 	}
 
-
-	/**
-	 * @see Expression#evaluate()
-	 */
 	public double evaluate() {
-		return 0;
+		return expressions.stream()
+				.mapToDouble(Expression::evaluate)
+				.min()
+				.orElse(0);
 	}
 
-
-	/**
-	 * @see Expression#toString()
-	 */
 	public String toString() {
-		return null;
+		return "min(" + expressions + ")";
 	}
-
 }
