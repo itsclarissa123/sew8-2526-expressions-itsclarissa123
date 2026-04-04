@@ -7,5 +7,6 @@ public abstract class BinaryOperation implements Expression {
 
 	public BinaryOperation(Expression left, Expression right) {
 		this.left = left;
+		this.right = right;
 	}
 }

@@ -7,6 +7,9 @@ public class Divide extends BinaryOperation {
 
 	@Override
 	public double evaluate() {
+		if (right.evaluate() == 0) {
+			throw new ArithmeticException("Division by zero");
+		}
 		return left.evaluate() / right.evaluate();
 	}
 
