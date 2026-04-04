@@ -1,3 +1,4 @@
+package at.ac.tgm;
 public abstract class UnaryOperation implements Expression, Expression {
 
 	private Expression operand;

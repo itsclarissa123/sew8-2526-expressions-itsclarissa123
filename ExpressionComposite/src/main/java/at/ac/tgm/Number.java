@@ -1,17 +1,20 @@
+package at.ac.tgm;
+
 public class Number implements Expression {
 
 	private double value;
 
 	public Number(double value) {
-
+		this.value = value;
 	}
 
 
 	/**
 	 * @see Expression#evaluate()
 	 */
+	@Override
 	public double evaluate() {
-		return 0;
+		return value;
 	}
 
 
@@ -19,7 +22,7 @@ public class Number implements Expression {
 	 * @see Expression#toString()
 	 */
 	public String toString() {
-		return null;
+		return String.valueOf(value);
 	}
 
 }

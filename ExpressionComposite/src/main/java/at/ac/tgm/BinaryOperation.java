@@ -1,27 +1,11 @@
-public class BinaryOperation implements Expression {
+package at.ac.tgm;
+public abstract class BinaryOperation implements Expression {
 
-	private Expression left;
+	 protected Expression left;
 
-	private Expression right;
+	protected Expression right;
 
 	public BinaryOperation(Expression left, Expression right) {
-
+		this.left = left;
 	}
-
-
-	/**
-	 * @see Expression#evaluate()
-	 */
-	public double evaluate() {
-		return 0;
-	}
-
-
-	/**
-	 * @see Expression#toString()
-	 */
-	public String toString() {
-		return null;
-	}
-
 }
