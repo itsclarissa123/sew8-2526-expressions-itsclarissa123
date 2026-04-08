@@ -16,7 +16,15 @@ public class Min implements Expression {
 				.orElse(0);
 	}
 
-	public String toString() {
-		return "min(" + expressions + ")";
+	@Override
+	public void buildString(StringBuilder sb) {
+		sb.append("min(");
+		for (int i = 0; i < expressions.size(); i++) {
+			expressions.get(i).buildString(sb);
+			if (i < expressions.size() - 1) {
+				sb.append(", ");
+			}
+		}
+		sb.append(")");
 	}
 }

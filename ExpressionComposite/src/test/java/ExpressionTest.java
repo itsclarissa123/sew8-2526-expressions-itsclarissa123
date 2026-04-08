@@ -10,7 +10,7 @@ public class ExpressionTest {
     void testNumber() {
         Expression n = new Number(5);
         assertEquals(5, n.evaluate());
-        assertEquals("5.0", n.toString());
+        assertEquals("5.0", n.toString0());
     }
 
     @Test
@@ -53,7 +53,7 @@ public class ExpressionTest {
     void testNegativeNumber() {
         Expression expr = new Number(-5);
         assertEquals(-5, expr.evaluate());
-        assertEquals("-5.0", expr.toString());
+        assertEquals("-5.0", expr.toString0());
     }
 
     @Test
@@ -107,27 +107,27 @@ public class ExpressionTest {
     }
 
     @Test
-    void testToStringAdd() {
+    void testtoString0Add() {
         Expression expr = new Add(new Number(2), new Number(3));
-        assertEquals("(2.0 + 3.0)", expr.toString());
+        assertEquals("(2.0 + 3.0)", expr.toString0());
     }
 
     @Test
-    void testToStringNested() {
+    void testtoString0Nested() {
         Expression expr = new Add(
                 new Number(2),
                 new Multiply(new Number(3), new Number(4))
         );
-        assertEquals("(2.0 + (3.0 * 4.0))", expr.toString());
+        assertEquals("(2.0 + (3.0 * 4.0))", expr.toString0());
     }
 
     @Test
-    void testToStringMinMax() {
+    void testtoString0MinMax() {
         Expression expr = new Min(List.of(
                 new Number(1),
                 new Number(2)
         ));
-        assertTrue(expr.toString().contains("min"));
+        assertTrue(expr.toString0().contains("min"));
     }
 
     @Test
@@ -136,6 +136,6 @@ public class ExpressionTest {
                 new Add(new Number(1), new Number(2)),
                 new Multiply(new Number(3), new Number(4))
         ));
-        assertTrue(expr.toString().contains("max"));
+        assertTrue(expr.toString0().contains("max"));
     }
 }

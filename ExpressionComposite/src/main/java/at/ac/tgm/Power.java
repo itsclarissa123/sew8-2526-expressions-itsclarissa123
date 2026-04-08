@@ -9,7 +9,12 @@ public class Power extends BinaryOperation {
 		return Math.pow(left.evaluate(), right.evaluate());
 	}
 
-	public String toString() {
-		return "(" + left + " ^ " + right + ")";
+	@Override
+	public void buildString(StringBuilder sb) {
+		sb.append('(');
+		left.buildString(sb);
+		sb.append('^');
+		right.buildString(sb);
+		sb.append(')');
 	}
 }

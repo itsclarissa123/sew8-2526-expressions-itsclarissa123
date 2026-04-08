@@ -8,21 +8,14 @@ public class Number implements Expression {
 		this.value = value;
 	}
 
-
-	/**
-	 * @see Expression#evaluate()
-	 */
 	@Override
 	public double evaluate() {
 		return value;
 	}
 
 
-	/**
-	 * @see Expression#toString()
-	 */
-	public String toString() {
-		return String.valueOf(value);
+	@Override
+	public void buildString(StringBuilder sb) {
+		sb.append(value);
 	}
-
 }

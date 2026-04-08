@@ -11,7 +11,11 @@ public class Multiply extends BinaryOperation {
 	}
 
 	@Override
-	public String toString() {
-		return "(" + left + " * " + right + ")";
+	public void buildString(StringBuilder sb) {
+		sb.append('(');
+		left.buildString(sb);
+		sb.append('*');
+		right.buildString(sb);
+		sb.append(')');
 	}
 }

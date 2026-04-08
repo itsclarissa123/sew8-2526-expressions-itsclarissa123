@@ -16,8 +16,17 @@ public class Max implements Expression {
 				.max()
 				.orElse(0);
 	}
-
-	public String toString() {
-		return "max(" + expressions + ")";
+	@Override
+	public void buildString(StringBuilder sb) {
+		int x = 0;
+		sb.append("max(");
+		for (Expression expression : expressions) {
+			expression.buildString(sb);
+			if(expressions.size() > x) {
+				sb.append(", ");
+				x++;
+			}
+		}
+		sb.append(")");
 	}
 }

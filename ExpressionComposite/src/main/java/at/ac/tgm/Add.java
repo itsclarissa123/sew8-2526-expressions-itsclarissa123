@@ -10,7 +10,11 @@ public class Add extends BinaryOperation {
 	}
 
 	@Override
-	public String toString() {
-		return "(" + left + " + " + right + ")";
+	public void buildString(StringBuilder builder) {
+		builder.append('(');
+		left.buildString(builder);
+		builder.append('+');
+		right.buildString(builder);
+		builder.append(')');
 	}
 }

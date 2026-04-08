@@ -2,8 +2,13 @@ package at.ac.tgm;
 
 public interface Expression {
 
-	public abstract double evaluate();
+	double evaluate();
+	void buildString(StringBuilder builder);
 
-	public abstract String toString();
+	default String toString0() {
+		StringBuilder sb = new StringBuilder();
+		buildString(sb);
+		return sb.toString();
+	}
 
 }
