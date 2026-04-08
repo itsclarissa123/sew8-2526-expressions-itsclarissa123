@@ -18,13 +18,11 @@ public class Max implements Expression {
 	}
 	@Override
 	public void buildString(StringBuilder sb) {
-		int x = 0;
 		sb.append("max(");
-		for (Expression expression : expressions) {
-			expression.buildString(sb);
-			if(expressions.size() > x) {
+		for (int i = 0; i < expressions.size(); i++) {
+			expressions.get(i).buildString(sb);
+			if (i < expressions.size() - 1) {
 				sb.append(", ");
-				x++;
 			}
 		}
 		sb.append(")");

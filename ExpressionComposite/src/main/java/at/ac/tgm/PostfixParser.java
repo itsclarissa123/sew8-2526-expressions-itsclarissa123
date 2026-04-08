@@ -61,7 +61,7 @@ public class PostfixParser {
 
                 case "~":
                     Expression aNeg = stack.remove(stack.size() - 1);
-                    stack.add(new Subtract(new Subtract(new Number(0), aNeg), aNeg));
+                    stack.add(new Subtract(new Number(0), aNeg));
                     break;
 
                 case "sin":
