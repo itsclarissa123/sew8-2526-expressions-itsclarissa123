@@ -1,11 +1,17 @@
 package at.ac.tgm;
 
+import at.ac.tgm.strategy.Cosinus;
+import at.ac.tgm.strategy.FunctionStrategy;
+import at.ac.tgm.strategy.Logarithm;
+import at.ac.tgm.strategy.Sinus;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
 
 public class Main {
     public static void main(String[] args) {
-        stringBuilderTest();
+        functionTest();
     }
 
     public static void stringBuilderTest(){
@@ -52,5 +58,18 @@ public class Main {
         // Max
         Expression max = new Max(list);
         System.out.println(max.toString0());
+    }
+    public static void functionTest(){
+        Expression x = new Number(0);
+
+        Expression sin = new FunctionStrag(x, new Sinus());
+        System.out.println(sin.toString0()); // sin(0)
+        System.out.println(sin.evaluate());  // 0.0
+
+        Expression cos = new FunctionStrag(new Number(0), new Cosinus());
+        System.out.println(cos.toString0()); // cos(0)
+
+        Expression ln = new FunctionStrag(new Number(1), new Logarithm());
+        System.out.println(ln.toString0()); // ln(1)
     }
 }
