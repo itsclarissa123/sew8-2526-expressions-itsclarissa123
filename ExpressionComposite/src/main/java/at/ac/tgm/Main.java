@@ -11,7 +11,7 @@ import java.util.function.Function;
 
 public class Main {
     public static void main(String[] args) {
-        functionTest();
+        postfix();
     }
 
     public static void stringBuilderTest(){
@@ -71,5 +71,19 @@ public class Main {
 
         Expression ln = new FunctionStrag(new Number(1), new Logarithm());
         System.out.println(ln.toString0()); // ln(1)
+    }
+    public static void postfix(){
+        Expression expr1 = PostfixParser.parse("2 3 + 4 *");
+        System.out.println(expr1);        // ((2 + 3) * 4)
+        System.out.println(expr1.evaluate()); // 20
+
+        Expression expr2 = PostfixParser.parse("2 3 4 * +");
+        System.out.println(expr2.toString0());        // (2 + (3 * 4))
+
+        Expression expr3 = PostfixParser.parse("5 ~");
+        System.out.println(expr3.toString0());        // (0 - 5)
+
+        Expression expr4 = PostfixParser.parse("0 sin");
+        System.out.println(expr4.toString0());        // sin(0)
     }
 }
